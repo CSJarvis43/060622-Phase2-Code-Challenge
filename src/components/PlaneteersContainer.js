@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Planeteer from "./Planeteer";
 
-function PlaneteersContainer() {
+function PlaneteersContainer({planeteers}) {
+
+
   return (
     <ul className="cards">
-      {/* render a list of <Planeteer> components in here */}
+      {planeteers.map(planeteer => (
+        <Planeteer 
+          planeteer={planeteer}
+          key={planeteer.id}
+        />
+      ))}
     </ul>
   );
 }
