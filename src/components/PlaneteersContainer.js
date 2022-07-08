@@ -4,7 +4,6 @@ import Planeteer from "./Planeteer";
 function PlaneteersContainer({planeteers, searchItem}) {
 
   const filteredPlaneteers = planeteers
-
   .filter(planeteer => planeteer.name.toLowerCase().includes(searchItem.toLowerCase()))
 
   // console.log(filteredPlaneteers)

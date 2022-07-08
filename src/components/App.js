@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import Header from "./Header";
 import RandomButton from "./RandomButton";
@@ -11,7 +11,7 @@ function App() {
 
   const [searchItem, setSearchItem] = useState("")
   const [planeteers, setPlaneteers] = useState([])
-  const [newPlaneteers, setNewPlaneteers] = useState(9)
+  // const [newPlaneteers, setNewPlaneteers] = useState(9)
 
   function handleSearch(e) {
     setSearchItem(e.target.value)
@@ -19,7 +19,7 @@ function App() {
 
   function handleRandom(planeteer) {
     setPlaneteers([...planeteers, planeteer])
-    setNewPlaneteers([...planeteers, planeteer])
+    // setNewPlaneteers([...planeteers, planeteer])
   }
 
   // console.log(newPlaneteers.slice(newPlaneteers.length - 1, newPlaneteers.length))
@@ -29,16 +29,21 @@ function App() {
     fetch(API).then(res => res.json()).then(setPlaneteers)
   },[])
 
+  // const firstUpdate = useRef(true)
+
   // useEffect(() => {
 
-  //   const newPlaneteer = planeteers.slice(planeteers.length - 2, planeteers.length - 1)
-
-  //   fetch(API, {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(newPlaneteer)
-  //   })
-  // },[planeteers])
+  //   const newPlaneteer = planeteers.slice(newPlaneteers.length - 1, newPlaneteers.length)
+  //   if(firstUpdate.current) {
+  //     firstUpdate.current = false
+  //   } else {
+  //     fetch(API, {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify(newPlaneteer)
+  //     })
+  //   }
+  // },[newPlaneteers])
 
 
   return (
