@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Planeteer({planeteer, handleBio}) {
+function Planeteer({planeteer}) {
 
   const {name, pictureUrl, twitter, bio, quote} = planeteer
 
