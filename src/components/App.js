@@ -9,8 +9,16 @@ const API = "http://localhost:8003/planeteers"
 
 function App() {
 
-  const [planeteers, setPlaneteers] = useState([])
+  const [searchItem, setSearchItem] = useState("")
 
+  function handleSearch(e) {
+    setSearchItem(e.target.value)
+  }
+
+  // console.log(searchItem)
+
+  const [planeteers, setPlaneteers] = useState([])
+  
   useEffect(() => {
     fetch(API).then(res => res.json()).then(setPlaneteers)
   },[])
@@ -19,9 +27,9 @@ function App() {
   return (
     <div>
       <Header />
-      <SearchBar />
+      <SearchBar handleSearch={handleSearch} searchItem={searchItem}/>
       <RandomButton />
-      <PlaneteersContainer planeteers={planeteers}/>
+      <PlaneteersContainer planeteers={planeteers} searchItem={searchItem}/>
     </div>
   );
 }
