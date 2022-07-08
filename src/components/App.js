@@ -5,6 +5,8 @@ import RandomButton from "./RandomButton";
 import PlaneteersContainer from "./PlaneteersContainer";
 import SearchBar from "./SearchBar";
 
+const API = "http://localhost:8003/planeteers"
+
 function App() {
   return (
     <div>
