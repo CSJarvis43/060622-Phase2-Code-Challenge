@@ -11,7 +11,7 @@ function App() {
 
   const [searchItem, setSearchItem] = useState("")
   const [planeteers, setPlaneteers] = useState([])
-  // const [planeteerId, setPlaneteerId] = useState(9)
+  const [newPlaneteers, setNewPlaneteers] = useState(9)
 
   function handleSearch(e) {
     setSearchItem(e.target.value)
@@ -19,9 +19,10 @@ function App() {
 
   function handleRandom(planeteer) {
     setPlaneteers([...planeteers, planeteer])
+    setNewPlaneteers([...planeteers, planeteer])
   }
 
-  // console.log(planeteers)
+  // console.log(newPlaneteers.slice(newPlaneteers.length - 1, newPlaneteers.length))
 
   
   useEffect(() => {
